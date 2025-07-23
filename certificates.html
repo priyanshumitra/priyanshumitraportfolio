@@ -1,0 +1,587 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Priyanshu Mitra - Certificates | Achievements</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        :root {
+            --primary: #6b48ff; /* Nebula purple */
+            --secondary: #ff2e63; /* Nebula pink */
+            --accent: #00d4ff; /* Nebula cyan */
+            --dark: #0a0a15; /* Deep space black */
+            --light: #e0e7ff; /* Starlight white */
+            --red-shadow: #ff0000; /* Red shadow for navigation bar */
+            --green-shadow: #00ff00; /* Green shadow for hobbies */
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+        }
+
+        body {
+            line-height: 1.7;
+            color: var(--light);
+            background: var(--dark) url('data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"%3E%3Cg fill="%23ffffff" fill-opacity="0.05"%3E%3Ccircle cx="10" cy="10" r="1"/%3E%3Ccircle cx="90" cy="90" r="1"/%3E%3Ccircle cx="50" cy="50" r="0.5"/%3E%3C/g%3E%3C/svg%3E') repeat;
+            scroll-behavior: smooth;
+            overflow-x: hidden;
+        }
+
+        /* Nebula Header (Navigation) */
+        nav {
+            background: var(--dark);
+            box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+            position: fixed;
+            width: 100%;
+            z-index: 1000;
+            top: 0;
+        }
+
+        .nav-container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 1.2rem 1.5rem;
+            max-width: 100%;
+            margin: 0 auto;
+            gap: 2rem;
+            flex-wrap: nowrap;
+            overflow: visible;
+        }
+
+        .logo {
+            font-size: 2.2rem;
+            font-weight: 900;
+            color: var(--light);
+            letter-spacing: -0.03em;
+            text-shadow: 0 0 10px var(--red-shadow), 0 0 20px var(--red-shadow);
+            white-space: nowrap;
+            flex-shrink: 0;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2.2rem;
+            flex-shrink: 1;
+            flex-wrap: nowrap;
+            white-space: nowrap;
+            overflow: visible;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--light);
+            font-weight: 700;
+            font-size: 1.1rem;
+            padding: 0.6rem 1.2rem;
+            border-radius: 25px;
+            transition: all 0.3s ease;
+            text-shadow: 0 0 5px rgba(255,255,255,0.5);
+            position: relative;
+            z-index: 1;
+        }
+
+        .nav-links a:hover {
+            color: var(--accent);
+            transform: scale(1.1);
+            box-shadow: 0 0 15px var(--accent);
+        }
+
+        .hamburger {
+            display: none;
+            font-size: 2rem;
+            color: var(--light);
+            cursor: pointer;
+            z-index: 2;
+            text-shadow: 0 0 10px var(--red-shadow);
+        }
+
+        /* Certificates Section */
+        .section {
+            padding: 9rem 5%;
+            position: relative;
+            background: linear-gradient(135deg, rgba(10,10,21,0.95), rgba(30,20,50,0.85));
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 6rem;
+        }
+
+        .section-title h2 {
+            font-size: 3.5rem;
+            font-weight: 900;
+            color: var(--light);
+            position: relative;
+            display: inline-block;
+            text-shadow: 0 0 15px var(--primary);
+        }
+
+        .section-title h2::after {
+            content: '';
+            width: 80%;
+            height: 8px;
+            background: linear-gradient(90deg, var(--primary), var(--accent));
+            bottom: -20px;
+            left: 10%;
+            border-radius: 4px;
+            position: absolute;
+            box-shadow: 0 0 10px var(--accent);
+        }
+
+        .certificates-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
+            gap: 3rem;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .certificate-card {
+            background: rgba(20,20,40,0.8);
+            padding: 3rem;
+            border-radius: 20px;
+            box-shadow: 0 0 20px rgba(0,0,0,0.5);
+            transition: transform 0.5s ease, box-shadow 0.5s ease;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            opacity: 1; /* Ensure initial visibility */
+        }
+
+        .certificate-card::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(107,72,255,0.2), transparent);
+            transition: all 0.5s ease;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .certificate-card:hover::before {
+            transform: scale(1.2);
+        }
+
+        .certificate-card:hover {
+            transform: translateY(-15px) scale(1.02);
+            box-shadow: 0 0 30px var(--primary), 0 0 50px var(--secondary);
+        }
+
+        .certificate-image {
+            display: none; /* Hide placeholder images */
+        }
+
+        .certificate-icon {
+            font-size: 4rem;
+            color: var(--accent);
+            margin-bottom: 2rem;
+            transition: transform 0.4s ease, color 0.4s ease;
+            display: block; /* Show icons */
+            position: relative;
+            z-index: 1;
+        }
+
+        .certificate-card:hover .certificate-icon {
+            transform: scale(1.1);
+        }
+
+        .certificate-card h3 {
+            font-size: 1.9rem;
+            font-weight: 700;
+            margin-bottom: 1.2rem;
+            color: var(--light);
+            text-shadow: 0 0 10px var(--primary);
+            position: relative;
+            z-index: 1;
+        }
+
+        .certificate-card p {
+            color: var(--light);
+            font-size: 1.05rem;
+            opacity: 0.9;
+            margin-bottom: 1rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .certificate-links {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+        }
+
+        .certificate-links a.btn {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: var(--light);
+            padding: 0.8rem 1.5rem;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1rem;
+            display: inline-block;
+            transition: all 0.3s ease;
+            position: relative;
+            z-index: 10;
+            pointer-events: auto;
+        }
+
+        .certificate-links a.btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 15px var(--accent);
+        }
+
+        /* Animation Keyframes */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Footer */
+        footer {
+            background: linear-gradient(135deg, var(--dark), rgba(30,20,50,0.9));
+            color: var(--light);
+            padding: 5rem 5%;
+            text-align: center;
+            position: relative;
+            box-shadow: 0 -5px 20px rgba(0,0,0,0.5);
+        }
+
+        .footer-content {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 2.5rem;
+            margin-bottom: 3rem;
+        }
+
+        .social-link {
+            width: 65px;
+            height: 65px;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 1.8rem;
+            color: var(--dark);
+            transition: all 0.5s ease;
+            box-shadow: 0 0 15px var(--accent);
+        }
+
+        .social-link:hover {
+            transform: translateY(-10px) rotate(15deg);
+            box-shadow: 0 0 25px var(--secondary), 0 0 35px var(--primary);
+            color: var(--light);
+        }
+
+        .copyright {
+            color: rgba(255,255,255,0.8);
+            font-size: 1rem;
+            text-shadow: 0 0 5px var(--primary);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 1200px) {
+            .certificates-container { grid-template-columns: 1fr; }
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background: var(--dark);
+                padding: 2rem;
+                transform: translateY(-100%);
+                transition: transform 0.4s ease;
+                box-shadow: 0 5px 20px rgba(0,0,0,0.5);
+                max-height: calc(100vh - 80px); /* Fallback */
+                overflow-y: auto; /* Enable scrolling */
+                -webkit-overflow-scrolling: touch; /* Smooth scrolling on iOS */
+            }
+
+            .nav-links.active {
+                display: flex;
+                transform: translateY(0);
+            }
+
+            .nav-links a {
+                width: 100%;
+                padding: 0.8rem 1.5rem;
+                text-align: center;
+                white-space: nowrap; /* Prevent text wrapping */
+            }
+
+            .hamburger { display: block; }
+            .section-title h2 { font-size: 2.5rem; }
+        }
+
+        @media (max-width: 576px) {
+            .certificate-card { padding: 2rem; }
+            .certificate-links { flex-direction: column; gap: 1rem; }
+            .certificate-links a.btn { padding: 0.9rem 2rem; font-size: 1rem; }
+        }
+    </style>
+</head>
+<body>
+    <!-- Nebula Navigation -->
+    <nav id="main-nav">
+        <div class="nav-container">
+            <div class="logo">Priyanshu Mitra</div>
+            <div class="hamburger"><i class="fas fa-bars"></i></div>
+            <div class="nav-links" id="nav-links">
+                <a href="index.html#home">Home</a>
+                <a href="index.html#about">About</a>
+                <a href="index.html#services">Services</a>
+                <a href="index.html#portfolio">Projects</a>
+                <a href="certificates.html">Certificates</a>
+                <a href="index.html#experience">Experience</a>
+                <a href="index.html#education">Education</a>
+                <a href="index.html#contact">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Certificates Section -->
+    <section class="section" id="certificates">
+        <div class="section-title">
+            <h2>My Certificates</h2>
+        </div>
+        <div class="certificates-container">
+            <!-- Certificate 1 -->
+            <div class="certificate-card">
+                <i class="fab fa-microsoft certificate-icon"></i>
+                <h3>Generative AI Productivity Skills with Microsoft and LinkedIn</h3>
+                <p>Issued by: Microsoft</p>
+                <p>Issued: December 2024</p>
+                <div class="certificate-links">
+                    <a href="https://www.linkedin.com/learning/certificates/77df485616cfa9c39a8fabacf0f9a2ef563713879dd500f9dbd4130a6db783a0?trk=share_certificate" class="btn" target="_blank" rel="noopener noreferrer">View Credential</a>
+                </div>
+            </div>
+            <!-- Certificate 2 -->
+            <div class="certificate-card">
+                <i class="fab fa-linkedin certificate-icon"></i>
+                <h3>C++ Programming Professional</h3>
+                <p>Issued by: LinkedIn</p>
+                <p>Issued: November 2024</p>
+                <div class="certificate-links">
+                    <a href="https://www.linkedin.com/learning/certificates/7f5fb4f895ebff3671f169e43819034e53ce3d0b994c057f19d841c613d41aa8?trk=share_certificate" class="btn" target="_blank" rel="noopener noreferrer">View Credential</a>
+                </div>
+            </div>
+            <!-- Certificate 3 -->
+            <div class="certificate-card">
+                <i class="fab fa-microsoft certificate-icon"></i>
+                <h3>Career Essentials in Data Analysis by Microsoft and LinkedIn</h3>
+                <p>Issued by: Microsoft</p>
+                <p>Issued: November 2024</p>
+                <div class="certificate-links">
+                    <a href="https://www.linkedin.com/learning/certificates/f7ade5e35abf6403c397e292f1191631d6a1e77c822f20ed63461a3948083239?trk=share_certificate" class="btn" target="_blank" rel="noopener noreferrer">View Credential</a>
+                </div>
+            </div>
+            <!-- Certificate 4 -->
+            <div class="certificate-card">
+                <i class="fab fa-github certificate-icon"></i>
+                <h3>Career Essentials in GitHub Professional</h3>
+                <p>Issued by: GitHub</p>
+                <p>Issued: November 2024</p>
+                <div class="certificate-links">
+                    <a href="https://www.linkedin.com/learning/certificates/78616284778679fb85e9f1aa0b3c82cec8de0e678fb97c34cacc289b34140dd7?trk=share_certificate" class="btn" target="_blank" rel="noopener noreferrer">View Credential</a>
+                </div>
+            </div>
+            <!-- Certificate 5 -->
+            <div class="certificate-card">
+                <i class="fab fa-microsoft certificate-icon"></i>
+                <h3>Career Essentials in Project Management by Microsoft and LinkedIn</h3>
+                <p>Issued by: Microsoft</p>
+                <p>Issued: November 2024</p>
+                <div class="certificate-links">
+                    <a href="https://www.linkedin.com/learning/certificates/cda7a7ef3537301a21c7827a1b8eafc3aa479de4e20517720f3b76b2031a7672?trk=share_certificate" class="btn" target="_blank" rel="noopener noreferrer">View Credential</a>
+                </div>
+            </div>
+            <!-- Certificate 6 -->
+            <div class="certificate-card">
+                <i class="fab fa-microsoft certificate-icon"></i>
+                <h3>Career Essentials in Software Development by Microsoft and LinkedIn</h3>
+                <p>Issued by: Microsoft</p>
+                <p>Issued: November 2024</p>
+                <div class="certificate-links">
+                    <a href="https://www.linkedin.com/learning/certificates/5cd188bc835a121129064198f04a429786b0698ae4c7cc96ac66cd4c5765102c?trk=share_certificate" class="btn" target="_blank" rel="noopener noreferrer">View Credential</a>
+                </div>
+            </div>
+            <!-- Certificate 7 -->
+            <div class="certificate-card">
+                <i class="fab fa-linkedin certificate-icon"></i>
+                <h3>SQL for Data Analysis</h3>
+                <p>Issued by: LinkedIn</p>
+                <p>Issued: November 2024</p>
+                <div class="certificate-links">
+                    <a href="https://www.linkedin.com/learning/certificates/efe37b054a23c4ee8f5bbec972ae689d2f12bede9a18492e5628c1c34d1fb1dd?trk=share_certificate" class="btn" target="_blank" rel="noopener noreferrer">View Credential</a>
+                </div>
+            </div>
+            <!-- Certificate 8 -->
+            <div class="certificate-card">
+                <i class="fas fa-database certificate-icon"></i>
+                <h3>Data Analytics and Visualization</h3>
+                <p>Issued by: Coursera</p>
+                <p>Issued: October 2024</p>
+                <div class="certificate-links">
+                    <a href="https://forage-uploads-prod.s3.amazonaws.com/completion-certificates/Accenture%20North%20America/hzmoNKtzvAzXsEqx8_Accenture%20North%20America_FQWJqKBtc2cCSWn8j_1729237615669_completion_certificate.pdf" class="btn" target="_blank" rel="noopener noreferrer">View Credential</a>
+                </div>
+            </div>
+            <!-- Certificate 9 -->
+            <div class="certificate-card">
+                <i class="fab fa-envira certificate-icon"></i>
+                <h3>MongoDB</h3>
+                <p>Issued by: MongoDB, Inc.</p>
+                <p>Issued: August 2024</p>
+                <div class="certificate-links">
+                    <a href="https://ti-user-certificates.s3.amazonaws.com/ae62dcd7-abdc-4e90-a570-83eccba49043/5055e718-ee48-4ff7-bd3f-35da68e1172a-priyanshu-mitra-0ebdb431-9aa1-4a52-b2b8-7ebe017b7ed2-certificate.pdf" class="btn" target="_blank" rel="noopener noreferrer">View Credential</a>
+                </div>
+            </div>
+            <!-- Certificate 10 -->
+            <div class="certificate-card">
+                <i class="fab fa-google certificate-icon"></i>
+                <h3>Google Analytics Certification</h3>
+                <p>Issued by: Google</p>
+                <p>Issued: May 2024</p>
+                <div class="certificate-links">
+                    <a href="https://skillshop.exceedlms.com/profiles/752678fcac8745f18687c383da648fa6" class="btn" target="_blank" rel="noopener noreferrer">View Credential</a>
+                </div>
+            </div>
+            <!-- Certificate 11 -->
+            <div class="certificate-card">
+                <i class="fab fa-aws certificate-icon"></i>
+                <h3>AWS Networking</h3>
+                <p>Issued by: Amazon Web Services (AWS)</p>
+                <p>Issued: January 2024</p>
+                <div class="certificate-links">
+                    <a href="https://www.simplilearn.com/skillup-certificate-landing?token=eyJjb3Vyc2VfaWQiOiIzNzgyIiwiY2VydGlmaWNhdGVfdXJsIjoiaHR0cHM6XC9cL2NlcnRpZmljYXRlcy5zaW1wbGljZG4ubmV0XC9zaGFyZVwvdGh1bWJfNDgxOTU5Ml8xNzA2NDgyMTkyLnBuZyIsInVzZXJuYW1lIjoiUHJpeWFuc2h1IE1pdHJhIn0%3D&utm_source=shared-certificate&utm_medium=lms&utm_campaign=shared-certificate-promotion&referrer=https%3A%2F%2Flms.simplilearn.com%2Fcourses%2F6698%2FAWS-Networking-Basics%2Fcertificate%2Fdownload-skillup&%24web_only=true&_branch_match_id=1445478037306237056&_branch_referrer=H4sIAAAAAAAAA8soKSkottLXL87MLcjJ1EssKNDLyczL1k%2FVTw%2FOKQuuDCz280uyrytKTUstKsrMS49PKsovL04tsvUBqkpN8cwDAGph%2FKhBAAAA" class="btn" target="_blank" rel="noopener noreferrer">View Credential</a>
+                </div>
+            </div>
+            <!-- Certificate 12 -->
+            <div class="certificate-card">
+                <i class="fab fa-font-awesome certificate-icon"></i>
+                <h3>NVIDIA with AI on Jetson Nano</h3>
+                <p>Issued by: NVIDIA</p>
+                <p>Issued: July 2025</p>
+                <div class="certificate-links">
+                    <a href="https://learn.nvidia.com/certificates?id=bMq29MfqSRC4jLkycSWvpA#" class="btn" target="_blank" rel="noopener noreferrer">View Credential</a>
+                </div>
+            </div>
+            <!-- Certificate 13 -->
+            <div class="certificate-card">
+                <i class="fas fa-database certificate-icon"></i>
+                <h3>Deloitte Australia Data Analytics Job Simulation</h3>
+                <p>Issued by: Deloitte</p>
+                <p>Issued: June 2025</p>
+                <div class="certificate-links">
+                    <a href="https://forage-uploads-prod.s3.amazonaws.com/completion-certificates/9PBTqmSxAf6zZTseP/io9DzWKe3PTsiS6GG_9PBTqmSxAf6zZTseP_FQWJqKBtc2cCSWn8j_1751189791856_completion_certificate.pdf" class="btn" target="_blank" rel="noopener noreferrer">View Credential</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="social-links">
+                <a href="https://www.linkedin.com/in/priyanshu-mitra-879323261/" class="social-link" target="_blank" rel="noopener noreferrer"><i class="fab fa-linkedin-in"></i></a>
+                <a href="https://github.com/priyanshumitra" class="social-link" target="_blank" rel="noopener noreferrer"><i class="fab fa-github"></i></a>
+                <a href="https://www.instagram.com/priyanshu_mitra09/?hl=en" class="social-link" target="_blank" rel="noopener noreferrer"><i class="fab fa-instagram"></i></a>
+            </div>
+            <p class="copyright">© 2025 Priyanshu Mitra. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Dynamically Set Nav Links Max Height
+        const setNavLinksHeight = () => {
+            const navContainer = document.querySelector('.nav-container');
+            const navLinks = document.getElementById('nav-links');
+            const navHeight = navContainer.offsetHeight;
+            const viewportHeight = window.innerHeight;
+            const maxHeight = viewportHeight - navHeight;
+            navLinks.style.maxHeight = `${maxHeight}px`;
+        };
+
+        // Run on Load and Resize
+        window.addEventListener('load', setNavLinksHeight);
+        window.addEventListener('resize', setNavLinksHeight);
+
+        // Smooth Scrolling for Navigation Links (Redirect to index.html)
+        document.querySelectorAll('.nav-links a[href*="index.html#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const href = this.getAttribute('href');
+                const navLinks = document.getElementById('nav-links');
+                if (navLinks.classList.contains('active')) {
+                    navLinks.classList.remove('active');
+                }
+                window.location.href = href; // Redirect to index.html with hash
+            });
+        });
+
+        // Handle Certificates Links (Open in New Tab)
+        document.querySelectorAll('.certificate-links a.btn').forEach(button => {
+            button.addEventListener('click', function (e) {
+                e.stopPropagation();
+                const url = this.getAttribute('href');
+                if (url && url !== '#') {
+                    window.open(url, '_blank', 'noopener,noreferrer');
+                }
+            });
+        });
+
+        // Sticky Navigation
+        const nav = document.getElementById('main-nav');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                nav.classList.add('scrolled');
+            } else {
+                nav.classList.remove('scrolled');
+            }
+        });
+
+        // Hamburger Menu Toggle (No Icon Change)
+        const hamburger = document.querySelector('.hamburger');
+        const navLinks = document.getElementById('nav-links');
+        hamburger.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+            setNavLinksHeight(); // Ensure height is correct after toggle
+        });
+
+        // Certificate Card Animation
+        const certificateCards = document.querySelectorAll('.certificate-card');
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.animation = 'fadeIn 1s ease-out forwards';
+                } else {
+                    entry.target.style.opacity = '1';
+                }
+            });
+        }, { threshold: 0.2 });
+
+        certificateCards.forEach(card => {
+            card.style.opacity = '1';
+            observer.observe(card);
+        });
+    </script>
+</body>
+</html>
