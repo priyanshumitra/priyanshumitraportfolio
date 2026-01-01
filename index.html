@@ -163,6 +163,7 @@
             color: var(--light);
             max-width: 650px;
             opacity: 0.9;
+            text-align: justify; /* Added justified alignment */
         }
 
         .hero-buttons {
@@ -267,6 +268,7 @@
             color: var(--light);
             font-size: 1.15rem;
             opacity: 0.9;
+            text-align: justify; /* Added justified alignment */
         }
 
         /* Skills Section Layout */
@@ -443,6 +445,7 @@
             opacity: 0.9;
             position: relative;
             z-index: 1;
+            text-align: justify; /* Added justified alignment */
         }
 
         /* Portfolio Section */
@@ -517,6 +520,7 @@
             opacity: 0.9;
             position: relative;
             z-index: 1;
+            text-align: justify; /* Added justified alignment */
         }
 
         .portfolio-item a.btn {
@@ -587,6 +591,7 @@
             font-size: 1.1rem;
             opacity: 0.9;
             margin-bottom: 0.5rem;
+            text-align: center; /* Changed to center for education details */
         }
 
         /* Contact Section */
@@ -856,6 +861,18 @@
     transform: translateY(-5px);
     box-shadow: 0 0 15px #00FF00, 0 0 10px #00FF00 inset;
 }
+
+/* Experience Section specific styles */
+#experience .education-item p:nth-of-type(1),
+#experience .education-item p:nth-of-type(2) {
+    text-align: center !important;
+    margin-bottom: 0.5rem;
+}
+
+/* Make sure the rest of the paragraphs in experience section remain justified */
+#experience .education-item p:nth-of-type(n+3) {
+    text-align: justify;
+}
 </style>
 </head>
 <body>
@@ -976,10 +993,6 @@
                         </div>
                         
                         </div>
-                        
-                        </div>
-                        
-                        </div>
                     </div>
                 </div>
             </div>
@@ -1012,6 +1025,14 @@
                 </div>
                 <h3>Data Analytics</h3>
                 <p>Leveraging Python and SQL to analyze data and derive actionable insights for decision-making.</p>
+            </div>
+            <!-- NEW Robotics Engineering Service Card -->
+            <div class="service-card">
+                <div class="service-icon">
+                    <i class="fas fa-robot"></i>
+                </div>
+                <h3>Robotics Engineering</h3>
+                <p>Robotics Engineer focused on building and programming smart, automated systems using sensors and embedded technology.</p>
             </div>
         </div>
     </section>
@@ -1089,7 +1110,7 @@
                     <i class="fas fa-database"></i>
                 </div>
                 <h3>SQL by Python</h3>
-                <p>A project integrating SQL operations with Python for database management. There are Total 10 Program files which are related to basic operations with SQL and 1 another file which is related to the Small SQL project like that. All parts are covered in this</p>
+                <p>A project integrating SQL operations with Python for database management. There are Total 10 Program files which are related to basic operations with SQL and 1 another file which is related to the Small SQL project like that. All parts are covered in this.</p>
                 <a href="https://github.com/priyanshumitra/SQL-by-Python" class="btn" target="_blank" rel="noopener noreferrer">View Project</a>
             </div>
             <div class="portfolio-item">
@@ -1121,7 +1142,7 @@
                     <i class="fas fa-clipboard"></i>
                 </div>
                 <h3>TEIQue-SF</h3>
-                <p>This project refers to the Emotional Intelligence. A project who calculate your Emotional Intelligence according to your answers of Questions and give your final output as an average of your EI</p>
+                <p>This project refers to the Emotional Intelligence. A project who calculate your Emotional Intelligence according to your answers of Questions and give your final output as an average of your EI.</p>
                 <a href="https://github.com/priyanshumitra/TEIQue-SF" class="btn" target="_blank" rel="noopener noreferrer">View Project</a>
             </div>
             <div class="portfolio-item">
@@ -1129,7 +1150,7 @@
                     <i class="fas fa-language"></i>
                 </div>
                 <h3>Translator</h3>
-                <p>A tool for translating text across different languages using advanced algorithms. This project is a Python-based (GUI) application for translating text between multiple languages using the Google Translator API</p>
+                <p>A tool for translating text across different languages using advanced algorithms. This project is a Python-based (GUI) application for translating text between multiple languages using the Google Translator API.</p>
                 <a href="https://github.com/priyanshumitra/Translator" class="btn" target="_blank" rel="noopener noreferrer">View Project</a>
             </div>
         </div>
@@ -1219,7 +1240,6 @@
         </div>
     </section>
     
-
 
     <!-- Footer -->
     <footer>
